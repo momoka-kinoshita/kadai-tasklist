@@ -9,7 +9,20 @@
 
   <ul>
     <% @tasks.each do |task| %>
-      <li><%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %></li>
+      <li>
+        <%= link_to task.id, task %> : <%= task.status %> &gt; <%= task.content %>
+        <div>
+          <div>
+            <%= link_to task.user.name, user_path(task.user) %>
+            <span>posted at <%= task.created_at %></span>
+          </div>
+          <div>
+            <p><%= task.status %></p>
+            <p><%= task.content %></p>
+          </div>
+        </div>
+        
+      </li>
     <% end %>
   </ul>
 
